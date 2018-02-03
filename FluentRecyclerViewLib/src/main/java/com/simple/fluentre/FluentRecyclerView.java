@@ -1,4 +1,4 @@
-package com.simple.fluent.recyclerView;
+package com.simple.fluentre;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,8 +8,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import com.simple.fluent.R;
 
 import java.util.List;
 

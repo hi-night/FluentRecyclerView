@@ -1,4 +1,4 @@
-package com.simple.fluent.recyclerView;
+package com.simple.fluentre;
 
 /**
  * FluentRecycler 网络请求监听 适配器

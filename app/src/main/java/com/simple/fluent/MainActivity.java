@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.simple.fluent.recyclerView.FluentBaseAdapter;
-import com.simple.fluent.recyclerView.FluentRecyclerView;
-import com.simple.fluent.recyclerView.FluentRefreshListenerImpl;
+import com.simple.fluentre.FluentBaseAdapter;
+import com.simple.fluentre.FluentRecyclerView;
+import com.simple.fluentre.FluentRefreshListenerImpl;
 
 import java.util.ArrayList;
 import java.util.List;

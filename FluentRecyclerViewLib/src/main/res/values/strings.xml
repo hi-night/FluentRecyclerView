@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FluentRecyclerViewLib</string>
+    <string name="no_content">没有更多内容了</string>
+</resources>
