@@ -1,7 +1,13 @@
 # FluentRecyclerView
-功能齐全且易于使用的RecyclerView及BaseAdapter 封装
 
-FluentRecyclerView的使用方式
+## 介绍
+FluentRecyclerView 提供了下拉刷新、触底加载的动画，无数据页面和无底页面；
+设置刷新的监听后，触底加载的页码数会自动计算，无需自已维护；
+用尽可能简单的调用的方式完成需要实现功能；
+已在实际项目内使用，效果良好；
+
+
+## 功能使用
 
 ```java
 // 启动刷新动态, 触发下拉刷新监听
