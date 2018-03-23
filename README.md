@@ -3,7 +3,7 @@
 
 FluentRecyclerView的使用方式
 
-`<hello world>`
+```java
 // 启动刷新动态, 触发下拉刷新监听
 recyclerView.setRefreshing();
 // 关闭/开启 加载动画
@@ -28,10 +28,10 @@ recyclerView.setOnRefreshListener(new FluentRefreshListenerImpl(){
                
            }
        });
-```ruby
+```
 
 监听接口
-`<hello world>`
+```java
 public interface FluentRefreshListener {
     /**
      * 下拉刷新
@@ -44,4 +44,4 @@ public interface FluentRefreshListener {
      */
     void onLoadMoreRefresh(int page);
 }
-```ruby
+```
