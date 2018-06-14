@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.simple.fluentre.FluentBaseAdapter;
+import com.simple.fluentre.OnItemClickListener;
 import com.simple.fluentre.FluentRecyclerView;
 import com.simple.fluentre.FluentRefreshListenerImpl;
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setOnRefreshListener(new FluentRefreshListenerImpl(){
+        recyclerView.setOnRefreshListener(new FluentRefreshListenerImpl() {
             @Override
             public void onLoadMoreRefresh(int page) {
                 setData(page);
@@ -47,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
         recyclerView.setRefreshing();
+        recyclerView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "position: " + position, Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     private void setData(final int page) {

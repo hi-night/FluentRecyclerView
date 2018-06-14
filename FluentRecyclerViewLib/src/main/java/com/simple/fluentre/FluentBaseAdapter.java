@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by duCong on 2/3/2018.
+ *
  * @param <T> item 数据类型
  */
 public abstract class FluentBaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -36,11 +37,16 @@ public abstract class FluentBaseAdapter<T> extends RecyclerView.Adapter<Recycler
 
     protected int position;
 
+    protected OnItemClickListener listener;
+
 
     public FluentBaseAdapter(Context context, List<T> mDataList) {
         this.dataList = mDataList == null ? new ArrayList<T>() : new ArrayList<>(mDataList);
         this.context = context;
+    }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     /**
@@ -170,7 +176,7 @@ public abstract class FluentBaseAdapter<T> extends RecyclerView.Adapter<Recycler
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         this.position = getPosition(position);
 
         int itemViewType = getItemViewType(position);
@@ -178,6 +184,12 @@ public abstract class FluentBaseAdapter<T> extends RecyclerView.Adapter<Recycler
         if (itemViewType != TYPE_MORE_HEADER
                 && itemViewType != TYPE_MORE_END
                 && itemViewType != TYPE_MORE_FOOTER) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(v, holder.getAdapterPosition());
+                }
+            });
 
             onAdapterBindViewHolder(holder, dataList.get(getPosition(position)));
         }
@@ -195,7 +207,7 @@ public abstract class FluentBaseAdapter<T> extends RecyclerView.Adapter<Recycler
     public int getDataCount() {
         if (dataList == null || dataList.size() == 0) {
             return 0;
-        }else {
+        } else {
             return getFooterAndEndItemCount();
         }
     }
@@ -218,7 +230,7 @@ public abstract class FluentBaseAdapter<T> extends RecyclerView.Adapter<Recycler
             return TYPE_MORE_HEADER;
         } else if (isMoreEnding && position == getItemCount() - 1) {
             return TYPE_MORE_END;
-        } else if (isMoreFooter && position == getItemCount() -1) {
+        } else if (isMoreFooter && position == getItemCount() - 1) {
             return TYPE_MORE_FOOTER;
         }
 

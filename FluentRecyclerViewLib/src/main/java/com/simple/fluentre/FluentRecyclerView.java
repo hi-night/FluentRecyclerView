@@ -280,11 +280,10 @@ public class FluentRecyclerView<T> extends FrameLayout implements SwipeRefreshLa
     }
 
     /**
-     * 滚动到指定Items
-     *
-     * @param position
+     * item点击事件
      */
-    public void setSelection(int position) {
-        recyclerView.scrollToPosition(position);
+    public void setOnItemClickListener(OnItemClickListener listener){
+        if (adapter != null)
+            adapter.setOnItemClickListener(listener);
     }
 }
